@@ -405,10 +405,18 @@ nav ul a:hover {
 }
 
 .specialist-card {
+  position: relative;
   width: 318px;
   height: 328px;
   box-shadow: var(--main-shadow);
   border-radius: 16px;
+}
+
+.specialist-card__experience-bage {
+  position: absolute;
+  right: 17px;
+  top: 20px;
+  background-color: var(--bg-color);
 }
 
 .specialist-card__photo {
