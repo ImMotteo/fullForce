@@ -253,6 +253,9 @@ header {
   border-radius: var(--main-radius);
   font-weight: 600;
   border: 1px solid #1e1e1e29;
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
 }
 
 .header__logo {
@@ -349,8 +352,6 @@ nav ul a:hover {
   transition: 0.5s ease;
 }
 
-
-
 /* Hero блок */
 
 .hero {
@@ -359,7 +360,6 @@ nav ul a:hover {
   justify-content: space-between;
   gap: 60px;
   margin-top: 50px;
-  position: relative;
   padding: 50px 0;
   padding-top: 0;
 }
@@ -382,8 +382,8 @@ nav ul a:hover {
   display: flex;
   gap: 16px;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 65px;
+  right: 110px;
 }
 
 [data-theme="dark"] .header__social svg path {
@@ -392,7 +392,7 @@ nav ul a:hover {
 
 .header__social svg {
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header__social svg:hover {
@@ -400,29 +400,138 @@ nav ul a:hover {
 }
 
 .specialists__cards {
+  position: relative;
   display: grid;
-  grid-row: 5fr 1fr;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px;
+  padding: var(--main-padding);
+  padding-bottom: 32px;
 }
 
 .specialist-card {
   position: relative;
-  width: 318px;
+  width: auto;
+  min-width: 0;
   height: 328px;
   box-shadow: var(--main-shadow);
   border-radius: 16px;
+  transition: 0.3s;
 }
 
 .specialist-card__experience-bage {
   position: absolute;
   right: 17px;
   top: 20px;
-  background-color: var(--bg-color);
+  background-color: var(--main-text-color);
+  color: var(--second-color);
+  padding: 6px 16px;
+  border-radius: 100px;
+  top: -20px;
+  right: -17px;
 }
 
 .specialist-card__photo {
   width: 100%;
-  border-radius: 0 0 16px 16px;
+  border-radius: 16px;
   background-size: cover;
   background-repeat: no-repeat;
   height: 203px;
+  background-position: center;
+  margin-bottom: 32px;
+}
+
+.card__text {
+  padding: 0 24px;
+}
+
+.text--big {
+  font-size: var(--big-text-size);
+}
+
+.text--bold {
+  font-weight: 700;
+}
+
+.specialist-card__name {
+  margin-bottom: 8px;
+}
+
+.specialist-card__more {
+  opacity: 0;
+  transition: 0.3s;
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  background-color: var(--primary-color);
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.specialist-card:hover .specialist-card__more {
+  opacity: 1;
+}
+
+.specialist-card:hover {
+  transform: scale(1.01);
+}
+
+.slider-counter__element {
+  width: 10px;
+  height: 10px;
+  background-color: none;
+  border-radius: 50%;
+  border: 1.5px solid var(--main-text-color);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.slider-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.slider-counter__element--active {
+  width: 22px;
+  border-radius: 8px;
+  background-color: var(--main-text-color);
+}
+
+.slider-control {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+[data-theme="dark"] .slider-control svg path {
+  stroke: white;
+}
+
+.slider-control:hover {
+  background-color: var(--bg-second-color);
+}
+
+.slider-control--next {
+  right: calc(var(--main-padding) - 25px);
+}
+
+.slider-control--before {
+  left: calc(var(--main-padding) - 25px);
+  transform: rotate(180deg);
 }
