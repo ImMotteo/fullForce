@@ -548,9 +548,67 @@ nav ul a:hover {
 .services__block {
   border-radius: var(--seccond-radius);
   background-color: var(--bg-second-color);
-  padding: var(--second-paddingng);
+  padding: var(--second-padding);
 }
 
-.services__block-title {
-  
+.services__header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.services__header::before,
+.services__header::after {
+  content: "";
+  flex: 1;
+  height: 3px;            /* высота линии точек */
+  background: radial-gradient(circle, var(--main-text-color) 1.5px, transparent 1.5px);
+  opacity: .4;
+  background-size: 8px 4px; /* шаг точек: ширина 8px, высота 4px */
+  background-repeat: repeat-x;
+}
+
+.services__header::before {
+  margin-right: 20px;
+  background-position: right center;
+}
+
+.services__header::after {
+  margin-left: 20px;
+  background-position: left center;
+}
+
+.services__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  padding: var(--second-padding);
+  background-color: var(--bg-color);
+  color: var(--main-text-color);
+  font-size: var(--main-text-size);
+  border-radius: var(--main-radius);
+  gap: 16px;
+  transition: .3s;
+  cursor: pointer;
+  height: 78px;padding-right: 0;
+}
+
+.service:hover {
+  background-color: var(--primary-color);
+}
+
+.service svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
