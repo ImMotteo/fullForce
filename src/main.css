@@ -262,7 +262,7 @@ header {
 .header__logo {
   font-size: var(--main-title-size);
   font-weight: 800;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
 }
 
 .header__actions {
@@ -540,10 +540,9 @@ nav ul a:hover {
 }
 
 /* Блок "Услуги" */
- #services {
+#services {
   padding: var(--main-padding);
- }
-
+}
 
 .services__block {
   border-radius: var(--seccond-radius);
@@ -565,9 +564,13 @@ nav ul a:hover {
 .services__header::after {
   content: "";
   flex: 1;
-  height: 3px;            /* высота линии точек */
-  background: radial-gradient(circle, var(--main-text-color) 1.5px, transparent 1.5px);
-  opacity: .4;
+  height: 3px; /* высота линии точек */
+  background: radial-gradient(
+    circle,
+    var(--main-text-color) 1.5px,
+    transparent 1.5px
+  );
+  opacity: 0.4;
   background-size: 8px 4px; /* шаг точек: ширина 8px, высота 4px */
   background-repeat: repeat-x;
 }
@@ -582,9 +585,13 @@ nav ul a:hover {
   background-position: left center;
 }
 
+.services__block {
+  margin: 32px 0;
+}
+
 .services__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 32px;
 }
@@ -598,17 +605,27 @@ nav ul a:hover {
   font-size: var(--main-text-size);
   border-radius: var(--main-radius);
   gap: 16px;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
-  height: 78px;padding-right: 0;
+  height: 78px;
+  padding-right: 0;
 }
 
 .service:hover {
   background-color: var(--primary-color);
 }
 
+.service:hover svg path {
+  stroke: #1e1e1e;
+}
+
 .service svg {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.service svg path {
+  stroke: #8f8f8f;
+  transition: 0.3s;
 }
